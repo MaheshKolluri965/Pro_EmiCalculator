@@ -1,0 +1,66 @@
+<div class="calculator">
+    <div>
+        <h1 class="title">EMI Calculator</h1>
+    </div>
+    <form #emiForm="ngForm" (ngSubmit)="calculateEMI(emiForm)">
+        <div class="box">
+            <div class="calbox">
+                <div class="inputVal">
+                    <div class="form-group">
+                        <label>Loan Amount: </label>
+                        <div class="input-group mb-3">
+                            <input type="number" name="loanamount" [(ngModel)]="emiRequest.loanamount" required class="form-control" placeholder="enter amount">
+                            <span class="input-group-text">₹</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Loan tenure: </label>
+                        <div class="input-group mb-3">
+                            <input type="number" name="loantenure" [(ngModel)]="emiRequest.loantenure" required class="form-control" placeholder="in years">
+                            <span class="input-group-text">Yr</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Loan Interest: </label>
+                        <div class="input-group mb-3">
+                            <input type="number" name="loanroi" [(ngModel)]="emiRequest.loanroi" required class="form-control" placeholder="rate of Interest">
+                            <span class="input-group-text">%</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div>
+                            <button type="reset" (click)="resetForm(emiForm)" class="btn btn-danger">Reset</button>
+                        </div>
+                        <div class="element-with-space">
+                            <button type="submit" class="btn btn-success">Calculate</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="data">
+                <div *ngIf="calculateEMI !== null">
+                    <h6>Loan EMI</h6>
+                    <h4>₹ <span>{{emi}}</span></h4>
+                </div>
+
+                <div>
+                    <h6>Total Interest Payable</h6>
+                    <h4>₹ <span>{{emi_int_amout}}</span></h4>
+                </div>
+                <div id="emitotalamount" class="column-last">
+                    <h6>Total Payment<br>(Principal + Interest)</h6>
+                    <h4>₹ <span>{{emi_total_amount}}</span></h4>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <br><br><br>
+
+</div>

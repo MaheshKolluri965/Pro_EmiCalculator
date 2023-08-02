@@ -3,16 +3,26 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { EmicalulatorComponent } from './emicalulator/emicalulator.component';
+
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { EmiService } from './emi.service';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    EmicalulatorComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    EmiService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
